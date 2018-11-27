@@ -53,7 +53,7 @@ class ShopStyleApi(object):
         :param offset:
         :return:
         """
-        url = f'{self.base_url}/lists/{list_id}/?pid={self.api_key}&limit={limit}&offset={offset}'
+        url = f'{self.base_url}/lists/{list_id}/items/?pid={self.api_key}&limit={limit}&offset={offset}'
 
         r = requests.get(url=url)
         return r.json()
