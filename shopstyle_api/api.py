@@ -37,7 +37,7 @@ class ShopStyleApi(object):
 
     def get_list_id(self, list_id):
         """
-        https://shopstylecollective.zendesk.com/hc/en-us/articles/115000845806--lists
+        https://shopstylecollective.zendesk.com/hc/en-us/articles/115000866203--lists-list-id-
         :param list_id:
         :return:
         """
