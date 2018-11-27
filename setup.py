@@ -10,7 +10,6 @@ setuptools.setup(
     author_email="al.orzh@gmail.com",
     description="API client for Shopstylecollective",
     long_description=long_description,
-    long_description_content_type="text/markdown",
     url="https://github.com/aorzh/shopstyle_api",
     packages=setuptools.find_packages(),
     install_requires=[
