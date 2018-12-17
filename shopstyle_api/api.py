@@ -24,7 +24,7 @@ class ShopStyleApi(object):
 
     @staticmethod
     def build_filters_string(filters_list):
-        return ','.join([f'fl={f}' for f in filters_list])
+        return '&'.join([f'fl={f}' for f in filters_list])
 
     def get_lists(self):
         """
@@ -137,30 +137,12 @@ class ShopStyleApi(object):
         r = requests.get(url=url)
         return r.json()
 
-    def get_product(self, product_id, free_text_search='', category='', filters=None, pdd='', sort='Recency'):
+    def get_product(self, product_id):
         """
         https://shopstylecollective.zendesk.com/hc/en-us/articles/115000866043-What-are-the-query-parameters-
         :param product_id:
-        :param free_text_search:
-        :param category:
-        :param filters: list of filters. Filter prefixes are:
-                b - brand
-                r - retailer
-                p - price
-                d - sale
-                s - size
-                c - color
-                format <prefix><id> (ex. b1234)
-        :param pdd: A "price drop date" expressed as a number of milliseconds since Jan 1, 1970.
-         If present, limits the results to products whose price has dropped since the given date.
-        :return:
-        :param sort: Available PriceLoHi, PriceHiLo, Recency, Popular
         """
-        if filters:
-            filters = self.build_filters_string(filters)
-        url = f'{self.base_url}/products/{product_id}/?pid={self.api_key}' \
-              f'&userId={self.api_username}&fts={free_text_search}&cat={category}&fl={filters}&pdd={pdd}&sort={sort}'
-
+        url = f'{self.base_url}/products/{product_id}/?pid={self.api_key}&userId={self.api_username}'
         r = requests.get(url=url)
         return r.json()
 
@@ -188,6 +170,7 @@ class ShopStyleApi(object):
     def get_products(self, filters, category='', floor=0, free_text_search='', pdd='', sort='Recency',
                      limit=50, offset=0):
         """
+        LOOKS LIKE THIS ENDPOINT IS DEPRECATED. RETURNING ONLY **{"errorCode":400,"errorMessage":"HTTP 404 Not Found"}**
         https://shopstylecollective.zendesk.com/hc/en-us/articles/115000866043-What-are-the-query-parameters-
         :param filters: list of filters. Available Brand, Retailer, Price, Discount, Size and Color.
         :param category:
@@ -202,7 +185,7 @@ class ShopStyleApi(object):
         :return:
         """
         filters = self.build_filters_string(filters)
-        url = f'{self.base_url}/products/histogram/?pid={self.api_key}' \
+        url = f'{self.base_url}/products/?pid={self.api_key}' \
               f'&userId={self.api_username}&floor={floor}&fts={free_text_search}' \
               f'&cat={category}&filters={filters}&pdd={pdd}&sort={sort}&limit={limit}&offset={offset}'
 

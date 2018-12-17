@@ -15,6 +15,10 @@ To getting access to shopstylecollective api write in your code:
 
 `from shopstyle_api.api import ShopStyleApi`
 
+or shortly
+
+`from shopstyle_api import ShopStyleApi`
+
 and 
 
 `client = ShopStyleApi(api_key=SHOPSTYLE_API_KEY, api_username=YOUR_USERNAME)`
@@ -37,7 +41,7 @@ and
 
 * `get_price_filters()` (https://shopstylecollective.zendesk.com/hc/en-us/articles/360001337531--Price-Filters)
 
-* `get_product(product_id, free_text_search, category, filters, pdd', sort)` (https://shopstylecollective.zendesk.com/hc/en-us/articles/115000866043-What-are-the-query-parameters-)
+* `get_product(product_id, free_text_search, category, filters, pdd, sort)` (https://shopstylecollective.zendesk.com/hc/en-us/articles/115000866043-What-are-the-query-parameters-)
 
 * `get_products(filters, category, floor, free_text_search, pdd, sort,
                      limit, offset)` (https://shopstylecollective.zendesk.com/hc/en-us/articles/115000866043-What-are-the-query-parameters-)
@@ -46,6 +50,8 @@ and
 
 * `get_retailers()` (https://shopstylecollective.zendesk.com/hc/en-us/articles/115000868743--retailers)
 
+**DEPRECATED BELOW**
+*rerun only {"errorCode":400,"errorMessage":"HTTP 404 Not Found"}*
 * `list_search(list_id, free_text_search, filters, category, sort, limit, offset)` (https://shopstylecollective.zendesk.com/hc/en-us/articles/115000848706--lists-search)
 
 
