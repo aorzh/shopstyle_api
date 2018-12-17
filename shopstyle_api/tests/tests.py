@@ -1,11 +1,12 @@
+import os
 import unittest
 from shopstyle_api.api import ShopStyleApi
 
 
 class ApiTest(unittest.TestCase):
     def setUp(self):
-        self.api_key = 'your_api_key'
-        self.api_username = 'your_user_name'
+        self.api_key = os.environ['API_KEY']
+        self.api_username = os.environ['USERNAME']
         self.client = ShopStyleApi(api_key=self.api_key, api_username=self.api_username)
         self.list_id = 48317762
         self.product_id = 754386152

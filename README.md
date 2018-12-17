@@ -1,5 +1,7 @@
 [![Python 3.6+](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/downloads/release/python-360/)
 
+[![Build Status](https://travis-ci.com/aorzh/shopstyle_api.svg?branch=master)](https://travis-ci.com/aorzh/shopstyle_api)
+
 #API client for Shopstylecollective
 
 ## Installing
