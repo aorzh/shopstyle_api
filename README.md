@@ -2,11 +2,6 @@
 
 #API client for Shopstylecollective
 
-##IMPORTANT NOTE
-##This package was created in a two hours and does not have tests yet. 
-
-#*Release will coming soon!*
-
 ## Installing
 
  `pip install shopstyle_api`
@@ -22,6 +17,10 @@ or shortly
 and 
 
 `client = ShopStyleApi(api_key=SHOPSTYLE_API_KEY, api_username=YOUR_USERNAME)`
+
+
+***If you looking some examples please look at tests forlder.***
+
 
 -------------
 
