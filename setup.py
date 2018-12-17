@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="shopstyle_api",
-    version="0.0.4",
+    version="0.0.5",
     author="aorzh",
     author_email="al.orzh@gmail.com",
     description="API client for Shopstylecollective",
