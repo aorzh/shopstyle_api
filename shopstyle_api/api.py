@@ -61,6 +61,7 @@ class ShopStyleApi(object):
     def list_search(self, list_id='', free_text_search='', filters=None, category='',
                     sort='Recency', limit=50, offset=0):
         """
+        LOOKS LIKE THIS ENDPOINT IS DEPRECATED. RETURNING ONLY **{"errorCode":400,"errorMessage":"HTTP 404 Not Found"}**
         https://shopstylecollective.zendesk.com/hc/en-us/articles/115000848706--lists-search
         :param list_id:
         :param free_text_search:
@@ -170,7 +171,6 @@ class ShopStyleApi(object):
     def get_products(self, filters, category='', floor=0, free_text_search='', pdd='', sort='Recency',
                      limit=50, offset=0):
         """
-        LOOKS LIKE THIS ENDPOINT IS DEPRECATED. RETURNING ONLY **{"errorCode":400,"errorMessage":"HTTP 404 Not Found"}**
         https://shopstylecollective.zendesk.com/hc/en-us/articles/115000866043-What-are-the-query-parameters-
         :param filters: list of filters. Available Brand, Retailer, Price, Discount, Size and Color.
         :param category:

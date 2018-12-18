@@ -5,8 +5,8 @@ from shopstyle_api.api import ShopStyleApi
 
 class ApiTest(unittest.TestCase):
     def setUp(self):
-        self.api_key = os.environ['API_KEY']
-        self.api_username = os.environ['USERNAME']
+        self.api_key = os.environ['SHOPSTYLE_API_KEY']
+        self.api_username = os.environ['SHOPSTYLE_API_USERNAME']
         self.client = ShopStyleApi(api_key=self.api_key, api_username=self.api_username)
         self.list_id = 48317762
         self.product_id = 754386152
@@ -83,7 +83,7 @@ class ApiTest(unittest.TestCase):
         Filter by brand 'Adidas'
         :return:
         """
-        filters = ['b{self.brand_id}',]
+        filters = [f'b{self.brand_id}', ]
         result = self.client.get_products(filters=filters)
         self.assertTrue(isinstance(result, dict))
         self.assertTrue(isinstance(result.get('products'), list))
@@ -107,8 +107,9 @@ class ApiTest(unittest.TestCase):
 
     def test_get_list_search(self):
         # list_search(list_id, free_text_search, filters, category, sort, limit, offset)`
-        filters = ['b3510', 'b689']
+        filters = [f'b{self.brand_id}']
         result = self.client.list_search(self.list_id, filters=filters)
+        # print(result)
         self.assertEqual(result.get('errorCode'), 400)
 
 
