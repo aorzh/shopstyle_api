@@ -83,8 +83,8 @@ class ShopStyleApi(object):
             filters = self.build_filters_string(filters)
         url = f'{self.base_url}/lists/search?pid={self.api_key}' \
               f'&userId={self.api_username}&listId={list_id}' \
-              f'&fts={free_text_search}&cat={category}&sort={sort}&limit={limit}&offset={offset}&fl={filters}'
-
+              f'&fts={free_text_search}' \
+              f'&cat={category}&{filters}&sort={sort}&limit={limit}&offset={offset}'
         r = requests.get(url=url)
         return r.json()
 
@@ -163,7 +163,7 @@ class ShopStyleApi(object):
         filters = self.build_filters_string(filters)
         url = f'{self.base_url}/products/histogram/?pid={self.api_key}' \
               f'&userId={self.api_username}&floor={floor}&fts={free_text_search}' \
-              f'&cat={category}&filters={filters}&pdd={pdd}&sort={sort}'
+              f'&cat={category}&{filters}&pdd={pdd}&sort={sort}'
 
         r = requests.get(url=url)
         return r.json()
@@ -187,7 +187,7 @@ class ShopStyleApi(object):
         filters = self.build_filters_string(filters)
         url = f'{self.base_url}/products/?pid={self.api_key}' \
               f'&userId={self.api_username}&floor={floor}&fts={free_text_search}' \
-              f'&cat={category}&filters={filters}&pdd={pdd}&sort={sort}&limit={limit}&offset={offset}'
+              f'&cat={category}&{filters}&pdd={pdd}&sort={sort}&limit={limit}&offset={offset}'
 
         r = requests.get(url=url)
         return r.json()
