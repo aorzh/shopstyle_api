@@ -12,7 +12,7 @@ class ApiTest(unittest.TestCase):
         self.product_id = 754386152
         self.category = 'women'
         self.fts = ''  # filters
-        self.brand_id = 14  # adidas
+        self.brand_id = 2333  # Forever 21
 
     def test_wrong_credentials(self):
         client = ShopStyleApi(api_key='', api_username='')
@@ -80,7 +80,7 @@ class ApiTest(unittest.TestCase):
 
     def test_get_product_by_filters(self):
         """
-        Filter by brand 'Adidas'
+        Filter by brand 'Forever 21'
         :return:
         """
         filters = [f'b{self.brand_id}', ]
@@ -100,16 +100,13 @@ class ApiTest(unittest.TestCase):
         self.assertTrue(isinstance(result.get('retailers'), list))
 
     def test_get_list_search_not_found(self):
-        # list_search(list_id, free_text_search, filters, category, sort, limit, offset)`
         filters = ['b{123123123123123123}']
         result = self.client.list_search(self.list_id, filters=filters)
         self.assertEqual(result.get('errorCode'), 400)
 
     def test_get_list_search(self):
-        # list_search(list_id, free_text_search, filters, category, sort, limit, offset)`
         filters = [f'b{self.brand_id}']
         result = self.client.list_search(self.list_id, filters=filters)
-        # print(result)
         self.assertEqual(result.get('errorCode'), 400)
 
 
